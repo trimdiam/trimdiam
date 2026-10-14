@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#081022">
+<title>Trimdiam — civil engineer, teacher and builder, Shillong</title>
+<meta name="description" content="Trimdiam is a civil engineer and teacher in Shillong who costs out buildings and builds tools for school.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#081022; --card:#0e1934; --card2:#13213f; --ink:#edf1f9; --muted:#9fb1d2; --faint:#6c80a8;
+  --line:#1b2a4a; --line2:#2a3c64; --amber:#f2c14e; --amber-dim:rgba(242,193,78,.16); --on-gold:#1a1405;
+  --blau:#0b4ea2; --grana:#8f1240; --ok:#6fd3a5;
+  --pcb:#0e2a66; --pcb-edge:#1d3f86; --trace:#2b5cbd; --silk:#e8eefb; --chip:#060a15; --metal:#b9c3d8;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"Cascadia Code",Consolas,monospace;
+  --ease:cubic-bezier(.22,.8,.24,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:5rem;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;min-height:100vh;color:var(--ink);font:400 1.02rem/1.7 var(--body);overflow-x:hidden;
+  background:
+    radial-gradient(1100px 650px at 88% -8%,rgba(29,91,216,.22),transparent 62%),
+    radial-gradient(900px 600px at -12% 105%,rgba(143,18,64,.12),transparent 60%),
+    radial-gradient(rgba(200,215,255,.05) 1.2px,transparent 1.3px) 0 0/28px 28px,
+    var(--bg);
+  padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+h1,h2,h3{font-family:var(--serif);margin:0;font-weight:400;line-height:1.05;letter-spacing:-.01em;font-optical-sizing:auto}
+h3{font-size:1.3rem;font-weight:500}
+p{margin:0 0 1rem;max-width:62ch}
+a{color:var(--amber);text-decoration-thickness:1px;text-underline-offset:3px}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+[tabindex="-1"]:focus{outline:none}
+::selection{background:var(--amber);color:var(--on-gold)}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.led{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:breathe 3.2s ease-in-out infinite;flex:none}
+@keyframes breathe{50%{opacity:.35;box-shadow:0 0 3px var(--amber)}}
+
+/* desk lamp */
+.lamp{position:fixed;left:0;top:0;width:1100px;height:1100px;margin:-550px 0 0 -550px;z-index:0;pointer-events:none;transition:opacity .8s;
+  background:radial-gradient(circle,rgba(242,193,78,.11) 0,rgba(242,193,78,.04) 30%,transparent 62%);will-change:transform;view-transition-name:lamp}
+body.lamp-off .lamp{opacity:0}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:1.2rem;padding:1rem clamp(1.2rem,4vw,3rem);
+  background:linear-gradient(var(--bg) 45%,rgba(8,16,34,0));view-transition-name:topbar}
+.mark{display:flex;align-items:center;gap:.6rem;font:500 1.3rem var(--serif);color:var(--ink);text-decoration:none;margin-right:auto}
+.links{position:relative;display:flex;gap:.1rem;overflow-x:auto;scrollbar-width:none}
+.links::-webkit-scrollbar{display:none}
+.links a{color:var(--muted);text-decoration:none;padding:.45rem .75rem;font:500 .9rem var(--body);white-space:nowrap;transition:color .3s}
+.links a:hover,.links a[aria-current="page"]{color:var(--ink)}
+.ind{position:absolute;bottom:2px;height:2px;border-radius:2px;background:var(--amber);box-shadow:0 0 8px var(--amber);transition:left .5s var(--ease),width .5s var(--ease);pointer-events:none}
+@media(max-width:720px){.top{flex-wrap:wrap;gap:.3rem}.links{width:100%;margin:0 -.75rem}}
+
+main{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:0 clamp(1rem,4vw,3rem) 6rem}
+.page{padding-top:clamp(1.2rem,4vw,3rem)}
+.page[hidden]{display:none}
+.page.enter{animation:rise .6s var(--ease)}
+@keyframes rise{from{opacity:0;transform:translateY(14px);filter:blur(6px)}}
+::view-transition-old(root){animation:vt-out .3s ease both}
+::view-transition-new(root){animation:vt-in .55s var(--ease) both}
+@keyframes vt-out{to{opacity:0;transform:translateY(-6px);filter:blur(4px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(14px);filter:blur(6px)}}
+.lede{font-size:1.14rem;color:var(--muted)}
+
+/* buttons, chips, cards */
+.cta{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.8rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.78rem 1.3rem;border-radius:999px;border:1px solid var(--line2);background:var(--card);
+  color:var(--ink);text-decoration:none;font:500 .92rem var(--body);transition:border-color .35s,background .35s,transform .35s var(--ease),box-shadow .35s}
+.btn:hover{border-color:var(--amber);transform:translateY(-2px);box-shadow:0 10px 30px -12px rgba(242,193,78,.45)}
+.btn.solid{background:var(--amber);border-color:var(--amber);color:var(--on-gold)}
+.btn.solid:hover{background:#f7d27a}
+.btn.sm{padding:.55rem 1rem;font-size:.85rem}
+.btn .arr{transition:transform .35s var(--ease)}.btn:hover .arr{transform:translateX(4px)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips button,.chips li{padding:.38rem .75rem;border-radius:999px;border:1px solid var(--line2);background:rgba(8,16,34,.4);color:var(--muted);font:400 .8rem var(--body);text-align:left;transition:color .3s,border-color .3s}
+.chips button:hover{color:var(--ink);border-color:var(--amber)}
+.chips ul,ul.chips{list-style:none;margin:0;padding:0}
+.card{position:relative;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:18px;padding:clamp(1.3rem,3vw,1.9rem);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);transition:border-color .4s,transform .45s var(--ease),box-shadow .45s}
+.card.hov:hover{border-color:rgba(242,193,78,.35);transform:translateY(-3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 18px 40px -22px rgba(0,0,0,.9)}
+.card p{color:var(--muted)}
+.tag{display:block;font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem}
+
+/* section header (inner pages) */
+.sh{margin-bottom:2.2rem}
+.sh .mono{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem}
+.sh .mono::after{content:"";height:1px;width:3rem;background:linear-gradient(90deg,var(--amber),transparent)}
+.sh h2{font-size:clamp(2.7rem,6.5vw,4.6rem);font-weight:300}
+.sh h2 em{font-style:italic;color:var(--amber)}
+
+/* ---------- home: hero ---------- */
+.hero{display:grid;gap:2rem;grid-template-columns:1fr;align-items:center}
+@media(min-width:1000px){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:3.5rem}}
+h1.name{font-size:clamp(3.4rem,13vw,7.6rem);font-weight:300;letter-spacing:-.03em;margin:.5rem 0 .2rem}
+@media(min-width:1000px){h1.name{font-size:min(7.4vw,7.8rem)}}
+.motto{font:italic 300 clamp(1.4rem,3vw,2.1rem)/1.2 var(--serif);color:var(--amber);margin:0 0 1.3rem}
+.hero .lede{max-width:46ch}
+.board{margin:0;width:100%;max-width:700px;justify-self:center}
+.board svg{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
+.board figcaption{margin-top:.5rem;text-align:center;font-size:.62rem}
+@media(min-width:1000px){.board{justify-self:end;animation:float 9s ease-in-out infinite}}
+@keyframes float{50%{transform:translateY(-8px) rotate(-.4deg)}}
+
+/* pcb: blue solder mask, gold (ENIG) pads */
+#pcb .trace{fill:none;stroke:var(--trace);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+#pcb .pulse{fill:none;stroke:#fff3c9;stroke-width:3.2;stroke-linecap:round;stroke-dasharray:.1 1.2;stroke-dashoffset:1.3;opacity:0;filter:url(#glow)}
+#pcb .pulse.run{animation:flow 1.1s var(--ease) forwards}
+@keyframes flow{0%{opacity:1;stroke-dashoffset:.1}85%{opacity:1}100%{opacity:0;stroke-dashoffset:-1.1}}
+#pcb .pad{fill:url(#gold);stroke:#a87f12;stroke-width:1.5;transition:filter .4s}
+#pcb .hole{fill:#050912}
+#pcb .silk{font-family:var(--mono);font-size:11px;letter-spacing:.12em;fill:var(--silk);opacity:.8;text-transform:uppercase;transition:fill .4s,opacity .4s}
+#pcb .silk.sm{font-size:8px;opacity:.45}
+#pcb .node{cursor:pointer;outline:none}
+#pcb .node:hover .trace,#pcb .node:focus-visible .trace,#pcb .node.on .trace{stroke:var(--amber)}
+#pcb .node:hover .pad,#pcb .node:focus-visible .pad,#pcb .node.on .pad{filter:url(#glow)}
+#pcb .node:hover .silk,#pcb .node:focus-visible .silk,#pcb .node.on .silk{fill:var(--amber);opacity:1}
+#pcb .node .hit{fill:none;stroke:transparent;stroke-width:26;pointer-events:stroke}
+#pcb .pwr{fill:var(--amber);animation:breathe 3.2s ease-in-out infinite}
+
+/* ---------- home: bento panels ---------- */
+.bento{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:clamp(2rem,4vw,3rem)}
+@media(min-width:700px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.span2{grid-column:span 2}}
+@media(min-width:1100px){.bento{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tile{position:relative;display:flex;flex-direction:column;gap:.9rem;min-width:0;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);
+  border-radius:20px;padding:clamp(1.15rem,2.2vw,1.5rem);overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);transition:border-color .4s}
+.tile:hover{border-color:var(--line2)}
+.t-top{display:flex;justify-content:space-between;align-items:center;gap:.6rem;flex-wrap:wrap}
+.t-top .mono{display:inline-flex;align-items:center;gap:.5rem}
+.tile h3{font-size:1.45rem;font-weight:400}
+.tile p{margin:0;color:var(--muted);font-size:.95rem}
+.more{margin-top:auto;font:500 .85rem var(--body);color:var(--amber);text-decoration:none;align-self:flex-start}
+.more:hover{text-decoration:underline}
+.t-act{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:auto}
+
+/* now building */
+.build-body{display:grid;grid-template-columns:1fr auto;gap:1.2rem;align-items:center}
+.fp-art{width:110px;height:110px;position:relative;border-radius:50%;border:1px solid var(--line2);background:radial-gradient(circle,#13254a,#0a1430);overflow:hidden}
+.fp-art svg{width:100%;height:100%;display:block}
+.fp-art .ridge{fill:none;stroke:var(--amber);stroke-width:2.6;stroke-linecap:round;opacity:.75}
+.fp-art::after{content:"";position:absolute;left:12%;right:12%;height:2px;top:10%;background:linear-gradient(90deg,transparent,#fff3c9,transparent);box-shadow:0 0 10px var(--amber);animation:scan 2.8s ease-in-out infinite}
+@keyframes scan{50%{top:86%}}
+@media(max-width:460px){.build-body{grid-template-columns:1fr}.fp-art{display:none}}
+
+/* ask tile */
+.t-ask{background:radial-gradient(500px 220px at 100% 0%,rgba(242,193,78,.10),transparent 70%),linear-gradient(180deg,var(--card2),var(--card))}
+.ask-row{display:flex;gap:.5rem}
+.ask-row input{flex:1;min-width:0;border-radius:999px;padding:.7rem 1.1rem}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin:-.2rem 0 0}
+@media(min-width:520px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{padding:.9rem .4rem .4rem;border-top:1px solid var(--line)}
+@media(min-width:520px){.stat{border-top:0;border-left:1px solid var(--line);padding:.4rem 1rem}.stat:first-child{border-left:0;padding-left:0}}
+.stat b{display:block;font:300 clamp(2rem,3.4vw,2.8rem)/1 var(--serif);letter-spacing:-.02em;margin-bottom:.45rem}
+.stat b span{color:var(--amber)}
+.stat .mono{font-size:.62rem;line-height:1.5}
+
+/* clock + lamp */
+.clock{display:flex;align-items:baseline;gap:.4rem;font:300 clamp(2.6rem,4vw,3.2rem)/1 var(--serif);letter-spacing:-.02em}
+.clock small{font:500 .9rem var(--mono);color:var(--amber)}
+.dotlive{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok);animation:breathe 2.4s ease-in-out infinite}
+.lamp-row{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:auto;padding-top:.8rem;border-top:1px solid var(--line)}
+.switch{position:relative;width:48px;height:27px;flex:none;border-radius:999px;border:1px solid var(--line2);background:#071026;padding:0;transition:border-color .35s,background .35s}
+.switch .knob{position:absolute;top:3px;left:3px;width:19px;height:19px;border-radius:50%;background:#71829f;box-shadow:0 2px 4px rgba(0,0,0,.5);transition:transform .4s var(--ease),background .35s,box-shadow .35s}
+.switch[aria-checked="true"]{border-color:rgba(242,193,78,.55);background:#1a1a12}
+.switch[aria-checked="true"] .knob{transform:translateX(21px);background:var(--amber);box-shadow:0 0 12px var(--amber)}
+
+/* barça */
+.t-barca{border-color:#23407e;min-height:230px;
+  background:linear-gradient(180deg,rgba(8,16,34,.1),rgba(8,16,34,.9) 72%),repeating-linear-gradient(90deg,var(--blau) 0 26px,var(--grana) 26px 52px);
+  background-position:0 0,0 0;transition:background-position 1.4s var(--ease),border-color .4s}
+.t-barca:hover{background-position:0 0,52px 0;border-color:var(--amber)}
+.t-barca .big{font:300 clamp(2.3rem,3.6vw,3rem)/.95 var(--serif);margin-top:auto}
+.t-barca .big em{font-style:italic;color:var(--amber)}
+.t-barca .mono{color:#d6def0}
+
+/* keycaps */
+.keys{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem}
+@media(min-width:560px){.keys{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.key{display:flex;flex-direction:column;justify-content:space-between;gap:.9rem;min-height:110px;padding:.85rem .9rem;border-radius:12px;color:var(--ink);text-decoration:none;
+  background:linear-gradient(180deg,#1b2c52,#13213f);border:1px solid #2d4170;
+  box-shadow:0 5px 0 #060d22,0 10px 20px -8px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.09);
+  transition:transform .12s ease,box-shadow .12s ease,border-color .3s}
+.key:hover{border-color:var(--amber)}
+.key:active{transform:translateY(4px);box-shadow:0 1px 0 #060d22,0 3px 8px -4px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.06)}
+.key svg{width:22px;height:22px;fill:none;stroke:var(--amber);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.key b{display:block;font:500 .95rem/1.25 var(--body)}
+.key small{display:block;font:500 .6rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+
+/* puzzle */
+.t-puzzle pre{margin:0}
+.pz-a{border-left:2px solid var(--amber);padding-left:.8rem}
+.pz-a b{font:500 1.1rem var(--mono);color:var(--amber)}
+
+/* music bars */
+.bars{display:flex;align-items:center;gap:3px;height:64px}
+.bars i{flex:1;height:100%;border-radius:2px;background:linear-gradient(var(--amber),#b88a1c);transform:scaleY(.15);animation:eq 1.2s ease-in-out infinite alternate}
+.bars i:nth-child(4n){background:linear-gradient(#5a8ef0,var(--blau))}
+@keyframes eq{to{transform:scaleY(var(--h,.8))}}
+
+/* about */
+.about{display:grid;gap:3rem;grid-template-columns:1fr;margin-top:5rem}
+@media(min-width:860px){.about{grid-template-columns:1fr 1fr;align-items:start}}
+.about h2{font-size:clamp(2.2rem,4.5vw,3.3rem);font-weight:300;margin-bottom:1.4rem}
+.about h2 em{font-style:italic;color:var(--amber)}
+.facts{list-style:none;margin:0;padding:0}
+.facts li{display:flex;gap:1rem;align-items:baseline;padding:.85rem 0;border-bottom:1px solid var(--line);transition:padding .45s var(--ease)}
+.facts li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--line2);transform:translateY(-2px);transition:background .35s,box-shadow .35s}
+.facts li:hover{padding-left:.5rem}
+.facts li:hover::before{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+
+/* ---------- engineering ---------- */
+.grid3{display:grid;gap:1rem;grid-template-columns:1fr;margin-bottom:2.5rem}
+@media(min-width:820px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.grid3 h3{margin-bottom:.6rem}.grid3 p{margin:0}
+.feature{display:grid;gap:1.2rem;grid-template-columns:1fr;margin-bottom:2.5rem}
+@media(min-width:920px){.feature{grid-template-columns:1fr 1.1fr;align-items:stretch}}
+.feature h3{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin:1rem 0 .8rem}
+.spec{display:grid;grid-template-columns:max-content 1fr;margin:1.4rem 0 0}
+.spec dt,.spec dd{padding:.6rem 0;border-top:1px solid var(--line);margin:0}
+.spec dt{font:500 .68rem/2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-right:1.4rem}
+.badge{display:inline-flex;align-items:center;gap:.5rem;font:500 .66rem var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;border-radius:999px;border:1px solid currentColor}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-done{color:var(--ok)}.s-use{color:var(--amber)}.s-build{color:var(--amber)}.s-spec{color:var(--muted)}.s-idea{color:var(--faint);border-style:dashed}
+.s-build::before{box-shadow:0 0 8px currentColor;animation:breathe 1.8s ease-in-out infinite}
+.blueprint{border:1px solid var(--line);border-radius:18px;background:linear-gradient(rgba(120,160,255,.06) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,rgba(120,160,255,.06) 1px,transparent 1px) 0 0/22px 22px,#0b1a3d;padding:1rem;display:flex;align-items:center}
+.blueprint svg{display:block;width:100%;height:auto}
+.blueprint .d{fill:none;stroke:var(--silk);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:.85;animation:draw 1.8s var(--ease) forwards;animation-delay:calc(var(--i)*.1s + .3s)}
+.blueprint .d.f{stroke:var(--amber);opacity:1}
+.blueprint .d.t{stroke:var(--faint);stroke-width:1}
+.blueprint text{font:500 9px var(--mono);letter-spacing:.12em;fill:var(--muted);opacity:0;animation:fade 1s 2.2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+
+/* ---------- projects ---------- */
+.bench{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:760px){.bench{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1200px){.bench{grid-template-columns:repeat(3,1fr)}}
+.bench .card{display:flex;flex-direction:column;gap:.85rem}
+.bench .card p{margin:0;flex:1}
+.meter{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.meter i{height:4px;border-radius:2px;background:var(--line2)}
+.meter i.on{background:var(--muted)}.meter i.now{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.meter.done i{background:var(--ok)}
+.meterlabel{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;font:500 .58rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:.45rem}
+h3.sub{font-size:1.7rem;font-weight:300;margin:3.2rem 0 1.2rem}
+
+/* ---------- lab ---------- */
+.lab{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:960px){.lab{grid-template-columns:1fr 1fr}}
+.lab h3{margin-bottom:.6rem}
+.scanner{display:flex;flex-direction:column;align-items:center;gap:.8rem;margin:1.5rem 0}
+.fp{position:relative;width:176px;height:176px;border:1px solid var(--line2);border-radius:50%;padding:0;background:radial-gradient(circle,#13254a,#0a1430);touch-action:none;-webkit-user-select:none;user-select:none;overflow:hidden;transition:border-color .4s,box-shadow .4s}
+.fp svg{width:100%;height:100%;display:block;position:relative;z-index:1}
+.fp .ridge{fill:none;stroke:var(--faint);stroke-width:2.2;stroke-linecap:round;transition:stroke .3s}
+.fp.active{border-color:var(--amber);box-shadow:0 0 40px -6px rgba(242,193,78,.5)}
+.fp.active .ridge{stroke:var(--amber)}
+.fp.ok{border-color:var(--ok);box-shadow:0 0 40px -6px rgba(111,211,165,.5)}
+.fp.ok .ridge{stroke:var(--ok)}
+.fp::after{content:"";position:absolute;left:10%;right:10%;top:0;height:2px;z-index:2;background:linear-gradient(90deg,transparent,#fff3c9,transparent);opacity:0}
+.fp.active::after{opacity:1;animation:laser 1.1s linear forwards}
+@keyframes laser{to{top:100%}}
+.ring{fill:none;stroke:var(--amber);stroke-width:4;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
+.msg{min-height:1.7em;font:500 .85rem var(--mono);text-align:center}
+label{display:block;font:500 .68rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
+select,input[type=text]{font:inherit;color:var(--ink);background:#071026;border:1px solid var(--line2);border-radius:10px;padding:.65rem .85rem;width:100%;transition:border-color .3s,box-shadow .3s}
+select:focus,input[type=text]:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px var(--amber-dim)}
+.row{display:flex;gap:.7rem;align-items:end;flex-wrap:wrap}
+.row>div{flex:1 1 12rem}
+table{width:100%;border-collapse:collapse;margin-top:1.2rem;font:400 .85rem var(--mono)}
+th,td{text-align:left;padding:.55rem .3rem;border-bottom:1px solid var(--line)}
+th{color:var(--faint);font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:.64rem}
+.in{color:var(--ok)}
+.balls{display:grid;grid-template-columns:repeat(auto-fill,minmax(2.7rem,1fr));gap:.5rem;margin-top:1.2rem}
+.ball{aspect-ratio:1;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line2);background:radial-gradient(circle at 35% 30%,#233a6b,#0c1733);font:500 1rem var(--serif);
+  animation:pop .6s var(--ease) backwards;animation-delay:calc(var(--i)*.035s)}
+.ball.first{background:radial-gradient(circle at 35% 30%,#fff1c2,var(--amber));color:var(--on-gold);border-color:var(--amber);box-shadow:0 0 22px -4px var(--amber)}
+@keyframes pop{from{transform:translateY(10px) scale(.6);opacity:0}}
+
+/* ---------- teaching ---------- */
+pre{background:#071026;border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;overflow-x:auto;font:400 .95rem/1.65 var(--mono);color:#d7e3fb;margin:1rem 0}
+.choices{display:flex;flex-wrap:wrap;gap:.5rem}
+.choices button{padding:.55rem 1.15rem;border-radius:10px;border:1px solid var(--line2);background:#071026;font:400 .98rem var(--mono);transition:border-color .3s,transform .35s var(--ease),color .3s}
+.choices button:hover{border-color:var(--amber);transform:translateY(-2px)}
+.choices button.right{border-color:var(--ok);color:var(--ok)}
+.choices button.wrong{border-color:var(--faint);color:var(--faint);text-decoration:line-through}
+
+/* ---------- music ---------- */
+.scope{position:relative;border:1px solid var(--line);border-radius:18px;background:#050b1a;overflow:hidden;margin:2rem 0 1.5rem;box-shadow:inset 0 0 60px rgba(0,0,0,.8)}
+.scope canvas{display:block;width:100%;height:220px}
+.scope .mono{position:absolute;left:1rem;top:.8rem;font-size:.62rem;color:var(--faint)}
+
+/* ---------- contact ---------- */
+.note{max-width:640px;margin-top:2rem}
+.note dl{display:grid;grid-template-columns:max-content 1fr;margin:0 0 1.6rem}
+.note dt,.note dd{margin:0;padding:.75rem 0;border-bottom:1px solid var(--line)}
+.note dt{font:500 .68rem/2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-right:1.6rem}
+.note .big{font:400 1.6rem/1.2 var(--serif)}
+
+footer{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:2rem clamp(1rem,4vw,3rem) 6rem;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+
+/* ---------- ask the bench (AI assistant panel) ---------- */
+.ask-btn{position:fixed;right:clamp(1rem,3vw,1.8rem);bottom:calc(clamp(1rem,3vw,1.8rem) + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:.6rem;
+  padding:.75rem 1.15rem;border-radius:999px;border:1px solid var(--line2);background:rgba(14,25,52,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  color:var(--ink);font:500 .88rem var(--body);box-shadow:0 14px 40px -14px rgba(0,0,0,.9);transition:border-color .35s,transform .45s var(--ease),opacity .35s}
+.ask-btn:hover{border-color:var(--amber);transform:translateY(-2px)}
+.ask-btn[aria-expanded="true"],body.ask-inline .ask-btn{opacity:0;pointer-events:none;transform:translateY(8px)}
+.ask{position:fixed;right:clamp(1rem,3vw,1.8rem);bottom:calc(clamp(1rem,3vw,1.8rem) + env(safe-area-inset-bottom));z-index:41;width:min(400px,calc(100vw - 2rem));height:min(560px,calc(100vh - 7rem));
+  display:flex;flex-direction:column;background:#0a1430;border:1px solid var(--line2);border-radius:18px;overflow:hidden;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.95),0 0 60px -30px rgba(242,193,78,.35);transform-origin:bottom right;
+  opacity:0;visibility:hidden;transform:translateY(14px) scale(.97);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s .45s}
+.ask.open{opacity:1;visibility:visible;transform:none;transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s}
+.ask-hd{display:flex;align-items:center;gap:.6rem;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+.ask-hd .mono{margin-right:auto;color:var(--ink)}
+.ask-x{width:2rem;height:2rem;border-radius:50%;border:1px solid var(--line2);background:none;font-size:1.1rem;line-height:1;color:var(--muted);transition:color .3s,border-color .3s}
+.ask-x:hover{color:var(--ink);border-color:var(--amber)}
+.ask-log{flex:1;overflow-y:auto;padding:1.1rem 1rem;font:400 .92rem/1.6 var(--body)}
+.ask-log p{margin:0 0 .9rem}
+.ask-log .q{font:500 .82rem/1.5 var(--mono);color:var(--amber);margin-top:1.2rem}
+.ask-log .q::before{content:"> "}
+.ask-log .a.err{color:var(--muted)}
+.ask-log .typing::after{content:"▍";color:var(--amber);animation:breathe 1s ease-in-out infinite}
+.ask-f{display:flex;gap:.5rem;padding:.75rem;border-top:1px solid var(--line)}
+.ask-f input{flex:1;min-width:0;border-radius:999px;padding:.6rem 1rem}
+.ask-f .btn{padding:.6rem 1rem}
+.ask-f .btn:disabled{opacity:.5;cursor:wait;transform:none;box-shadow:none}
+.ask-note{margin:0;padding:0 1rem .75rem;font:400 .64rem var(--mono);letter-spacing:.04em;color:var(--muted)}
+@media(max-width:560px){.ask{left:.5rem;right:.5rem;bottom:calc(.5rem + env(safe-area-inset-bottom));width:auto;height:min(78vh,560px)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
+  .bars i{transform:scaleY(var(--h,.5))}
+}
+</style>
+</head>
+<body>
+<div class="lamp" id="lamp" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="mark" href="#home"><span class="led" aria-hidden="true"></span>Trimdiam</a>
+  <nav class="links" id="links" aria-label="Main">
+    <a href="#home">Home</a>
+    <a href="#engineering">Engineering</a>
+    <a href="#projects">Projects</a>
+    <a href="#lab">Lab</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#music">Music</a>
+    <a href="#contact">Contact</a>
+    <span class="ind" id="ind" aria-hidden="true"></span>
+  </nav>
+</header>
+
+<main>
+<!-- HOME -->
+<section class="page" id="p-home" data-page="home">
+  <div class="hero">
+    <div>
+      <p class="mono">Civil engineer · Teacher · Builder — Shillong</p>
+      <h1 class="name" tabindex="-1">Trimdiam</h1>
+      <p class="motto">Small budgets, working tools.</p>
+      <p class="lede">I'm a civil engineer and teacher in Shillong. I analyse data, cost out buildings, and build the tools my school runs on, from Python lessons to fingerprint scanners.</p>
+      <div class="cta">
+        <a class="btn solid" href="#projects">See what I'm building <span class="arr">→</span></a>
+        <a class="btn" href="#lab">Try the lab</a>
+      </div>
+    </div>
+    <figure class="board">
+      <svg id="pcb" viewBox="0 0 520 400" role="group" aria-label="A circuit board. Each gold pad links to a section of the site.">
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <radialGradient id="gold" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#fff1c2"/><stop offset=".45" stop-color="#f2c14e"/><stop offset="1" stop-color="#a87f12"/></radialGradient>
+        </defs>
+        <rect x="10" y="10" width="500" height="380" rx="20" fill="var(--pcb)" stroke="var(--pcb-edge)" stroke-width="2"/>
+        <rect x="22" y="22" width="476" height="356" rx="14" fill="none" stroke="var(--pcb-edge)" stroke-width="1" stroke-dasharray="2 5"/>
+        <g id="holes"></g>
+        <rect x="232" y="6" width="56" height="26" rx="4" fill="#9aa5ba" stroke="#c9d1e0"/>
+        <text class="silk sm" x="260" y="46" text-anchor="middle">USB</text>
+        <g id="parts"></g>
+        <g id="nodes"></g>
+        <rect x="196" y="146" width="128" height="108" rx="8" fill="var(--chip)" stroke="#26345a"/>
+        <g id="pins"></g>
+        <circle cx="210" cy="160" r="3" fill="#1b2440"/>
+        <text x="260" y="196" text-anchor="middle" style="font:500 15px var(--serif);fill:var(--silk);letter-spacing:.02em">Trimdiam</text>
+        <text class="silk sm" x="260" y="214" text-anchor="middle">TRM-01 · SHILLONG</text>
+        <circle class="pwr" cx="462" cy="52" r="4"/>
+        <text class="silk sm" x="448" y="55" text-anchor="end">PWR</text>
+        <text class="silk sm" x="260" y="376" text-anchor="middle">REV 2 · MADE IN SHILLONG</text>
+      </svg>
+      <figcaption class="mono">Hover a gold pad to trace it · click to open</figcaption>
+    </figure>
+  </div>
+
+  <div class="bento">
+    <!-- now building -->
+    <article class="tile span2">
+      <div class="t-top"><span class="badge s-build">Now building</span><span class="mono">Projects</span></div>
+      <div class="build-body">
+        <div>
+          <h3 style="margin-bottom:.5rem">Fingerprint staff attendance</h3>
+          <p>A fingerprint reader at the school door. Teachers touch in when they arrive and touch out when they leave.</p>
+          <div class="meter" data-s="3" style="margin-top:1.1rem"></div>
+          <div class="meterlabel" aria-hidden="true"><span>Idea</span><span>Designed</span><span>Building</span><span>In use</span><span>Done</span></div>
+        </div>
+        <div class="fp-art" aria-hidden="true"><svg viewBox="0 0 170 170" id="fpArt"></svg></div>
+      </div>
+      <div class="t-act"><a class="btn sm solid" href="#lab">Try the simulation <span class="arr">→</span></a><a class="btn sm" href="#projects">All projects</a></div>
+    </article>
+
+    <!-- ask the bench -->
+    <article class="tile t-ask span2">
+      <div class="t-top"><span class="mono"><span class="led" aria-hidden="true"></span>Ask the bench</span><span class="mono">Small AI</span></div>
+      <h3>Questions about my work? Ask the bench.</h3>
+      <form class="ask-row" id="tAskF">
+        <label class="sr" for="tAskIn">Your question</label>
+        <input type="text" id="tAskIn" maxlength="500" autocomplete="off" placeholder="e.g. Can you prepare a BOQ for a house?">
+        <button class="btn solid" type="submit">Ask</button>
+      </form>
+      <div class="chips" id="tAskChips">
+        <button type="button">What goes into a DPR?</button>
+        <button type="button">Do you tutor physics?</button>
+        <button type="button">What is the fingerprint project?</button>
+      </div>
+    </article>
+
+    <!-- numbers -->
+    <article class="tile span2">
+      <div class="t-top"><span class="mono">By the numbers</span></div>
+      <h3>The Ri Bhoi estimate landed within <em style="color:var(--amber)">0.6%</em> of its budget.</h3>
+      <div class="stats" style="margin-top:auto">
+        <div class="stat"><b><span class="count" data-to="0.6" data-dec="1">0.6</span>%</b><div class="mono">Estimate vs budget</div></div>
+        <div class="stat"><b><span class="count" data-to="936">936</span></b><div class="mono">Sq ft costed, Ri Bhoi</div></div>
+        <div class="stat"><b><span class="count" data-to="5">5</span></b><div class="mono">Projects on the bench</div></div>
+        <div class="stat"><b><span class="count" data-to="3">3</span></b><div class="mono">Subjects taught</div></div>
+      </div>
+    </article>
+
+    <!-- clock + lamp -->
+    <article class="tile">
+      <div class="t-top"><span class="mono">Shillong · IST</span><span class="dotlive" aria-hidden="true"></span></div>
+      <div class="clock" aria-live="off"><span id="clkHM">--:--</span><small id="clkS">--</small></div>
+      <p class="mono" id="clkDate" style="font-size:.64rem"></p>
+      <ul class="chips" aria-label="Open to"><li>Estimates</li><li>School tools</li><li>Tutoring</li><li>Songs</li></ul>
+      <div class="lamp-row"><span class="mono" id="lampLbl">Desk lamp</span><button class="switch" id="lampSw" type="button" role="switch" aria-checked="true" aria-labelledby="lampLbl"><span class="knob"></span></button></div>
+    </article>
+
+    <!-- barça -->
+    <article class="tile t-barca">
+      <div class="t-top"><span class="mono">Off the clock</span></div>
+      <p class="big">Força<br><em>Barça.</em></p>
+      <p class="mono" style="font-size:.64rem">Favourite club · FC Barcelona<br>Més que un club</p>
+    </article>
+
+    <!-- quick start keycaps -->
+    <article class="tile span2">
+      <div class="t-top"><span class="mono">Quick start</span><span class="mono">Opens your email</span></div>
+      <div class="keys">
+        <a class="key" href="mailto:apohtamkai@outlook.com?subject=Estimate%20request">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h1M11.5 11h1M15 11h1M8 14.5h1M11.5 14.5h1M15 14.5h1M8 18h8"/></svg>
+          <span><b>Get an estimate</b><small>DPR · BOQ · Costing</small></span>
+        </a>
+        <a class="key" href="mailto:apohtamkai@outlook.com?subject=Tutoring">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9 12 4.5 21.5 9 12 13.5z"/><path d="M6.5 11v4.5c0 1.5 2.6 3 5.5 3s5.5-1.5 5.5-3V11"/></svg>
+          <span><b>Book tutoring</b><small>Python · Maths · Physics</small></span>
+        </a>
+        <a class="key" href="mailto:apohtamkai@outlook.com?subject=School%20tool">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M9.5 3v4M14.5 3v4M9.5 17v4M14.5 17v4M3 9.5h4M3 14.5h4M17 9.5h4M17 14.5h4"/></svg>
+          <span><b>School tools</b><small>Sheets · Apps · ESP32</small></span>
+        </a>
+        <a class="key" href="mailto:apohtamkai@outlook.com?subject=Song%20request">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>
+          <span><b>Request a song</b><small>Birthdays · Celebrations</small></span>
+        </a>
+      </div>
+    </article>
+
+    <!-- puzzle -->
+    <article class="tile t-puzzle">
+      <div class="t-top"><span class="mono">Quick puzzle</span><span class="mono">Class 8</span></div>
+      <p>What does this print?</p>
+      <pre>print("Shillong"[::-2])</pre>
+      <button class="btn sm" id="pzBtn" type="button" aria-expanded="false" aria-controls="pzA" style="align-self:flex-start">Reveal answer</button>
+      <p class="pz-a" id="pzA" hidden><b>golh</b><br>A step of -2 walks backwards from the last letter, taking every second one.</p>
+      <a class="more" href="#teaching">More puzzles →</a>
+    </article>
+
+    <!-- music -->
+    <article class="tile">
+      <div class="t-top"><span class="mono">After hours</span><span class="mono">Music</span></div>
+      <div class="bars" id="miniBars" aria-hidden="true"></div>
+      <h3>Songs, written for people.</h3>
+      <p>Birthdays, people close to me and celebrations, produced with Suno AI.</p>
+      <a class="more" href="#music">Music →</a>
+    </article>
+  </div>
+
+  <div class="about" id="about">
+    <div>
+      <p class="mono">Approach</p>
+      <h2>Most school software is too expensive, or <em>too generic.</em></h2>
+      <p class="lede">So I make my own: workbooks that generate admit cards, web apps for daily records, and now hardware that sits on the wall and does the job by itself.</p>
+      <p class="lede">Everything here was built from scratch, usually for close to nothing.</p>
+    </div>
+    <ul class="facts">
+      <li>Based in Shillong, Meghalaya</li>
+      <li>Teaches Python, mathematics and physics</li>
+      <li>Works as a data analyst</li>
+      <li>Civil engineer: DPRs, BOQs and cost estimates</li>
+      <li>Builds with ESP32 boards, Android and the web</li>
+      <li>Handles school admin: registers, question papers, admit cards</li>
+      <li>Writes songs on the side</li>
+      <li>Supports FC Barcelona</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ENGINEERING -->
+<section class="page" id="p-engineering" data-page="engineering" hidden>
+  <header class="sh"><p class="mono">01 · Structures</p><h2 tabindex="-1">Engineering</h2></header>
+  <p class="lede" style="margin-bottom:2.2rem">Project reports and cost estimates for buildings in Meghalaya, priced on the official MPWD Schedule of Rates.</p>
+  <div class="grid3">
+    <div class="card hov"><span class="tag">Reports</span><h3>Detailed project reports</h3><p>DPRs that set out scope, structure and cost, ready for funding or approval.</p></div>
+    <div class="card hov"><span class="tag">Quantities</span><h3>Bills of quantities</h3><p>Quantities taken from your working drawings, section by section, from foundations to finishing.</p></div>
+    <div class="card hov"><span class="tag">Costing</span><h3>Cost estimates</h3><p>Formula-driven spreadsheets, so one changed rate or quantity updates the whole estimate.</p></div>
+  </div>
+  <article class="feature">
+    <div class="card">
+      <span class="badge s-done">Completed</span>
+      <h3>Handloom workspace, Ri Bhoi</h3>
+      <p>A DPR and full BOQ for a single-storey workspace at a remote site, with remote-site costs accounted for.</p>
+      <dl class="spec">
+        <dt>Structure</dt><dd>RCC frame, about 936 sq ft, 9-inch brick walls</dd>
+        <dt>Roof</dt><dd>PPGI sheet on timber trusses</dd>
+        <dt>Scope</dt><dd>Substructure through to solar power, in eight sections</dd>
+        <dt>Rates</dt><dd>MPWD Schedule of Rates 2021–22</dd>
+        <dt>Result</dt><dd>Final estimate within 0.6% of the DPR budget</dd>
+      </dl>
+    </div>
+    <div class="blueprint" role="img" aria-label="Elevation drawing of a single-storey RCC building with a pitched PPGI roof on timber trusses">
+      <svg viewBox="0 0 640 330">
+        <path class="d t" pathLength="1" style="--i:0" d="M20 262H620"/>
+        <path class="d" pathLength="1" style="--i:1" d="M70 262V250H570V262"/>
+        <path class="d" pathLength="1" style="--i:2" d="M96 250V150M226 250V150M346 250V150M466 250V150M544 250V150"/>
+        <path class="d" pathLength="1" style="--i:3" d="M84 150H556"/>
+        <path class="d" pathLength="1" style="--i:4" d="M96 150V250H544V150"/>
+        <path class="d f" pathLength="1" style="--i:5" d="M148 178h54v34h-54zM400 178h54v34h-54z"/>
+        <path class="d f" pathLength="1" style="--i:6" d="M270 250V196h46v54"/>
+        <path class="d" pathLength="1" style="--i:7" d="M66 150L320 64L574 150"/>
+        <path class="d" pathLength="1" style="--i:8" d="M84 150L320 76L556 150"/>
+        <path class="d" pathLength="1" style="--i:9" d="M320 76V150M320 76L196 150M320 76L444 150M196 150L320 118L444 150"/>
+        <path class="d t" pathLength="1" style="--i:10" d="M96 296H544M96 289V303M544 289V303"/>
+        <text x="320" y="320" text-anchor="middle">≈ 936 SQ FT</text>
+        <text x="330" y="52">PPGI ROOF</text>
+        <text x="330" y="136">TIMBER TRUSS</text>
+        <text x="104" y="238">RCC COLUMN</text>
+      </svg>
+    </div>
+  </article>
+  <a class="btn solid" href="mailto:apohtamkai@outlook.com?subject=Estimate%20request">Ask for an estimate <span class="arr">→</span></a>
+</section>
+
+<!-- PROJECTS -->
+<section class="page" id="p-projects" data-page="projects" hidden>
+  <header class="sh"><p class="mono">02 · On the bench</p><h2 tabindex="-1">Projects</h2></header>
+  <p class="lede" style="margin-bottom:2.2rem">What's on the bench, and how far along each one is.</p>
+  <article class="card">
+    <span class="badge s-build">Building now</span>
+    <h3 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin:1rem 0 .8rem">Fingerprint staff attendance</h3>
+    <p>Teachers already have attendance in the school app, but they forget to log it. This puts a fingerprint reader at the door instead: touch in when you arrive, touch out when you leave.</p>
+    <div class="meter" data-s="3" style="margin-top:1.4rem"></div>
+    <div class="meterlabel" aria-hidden="true"><span>Idea</span><span>Designed</span><span>Building</span><span>In use</span><span>Done</span></div>
+    <dl class="spec">
+      <dt>Hardware</dt><dd>ESP32 with an R307 fingerprint sensor</dd>
+      <dt>Mounted</dt><dd>Covered corridor or indoor gate</dd>
+      <dt>Records</dt><dd>Kept separately, with an admin view of days present per teacher</dd>
+      <dt>Connects to</dt><dd>The existing school app</dd>
+    </dl>
+    <p style="margin:1.4rem 0 0"><a href="#lab">Try a simulated version in the lab →</a></p>
+  </article>
+  <h3 class="sub">Also on the bench</h3>
+  <div class="bench">
+    <div class="card hov"><span class="badge s-done" style="align-self:flex-start">Completed</span><h3>Handloom workspace DPR</h3><p>Detailed project report and BOQ for a single-storey RCC workspace in Ri Bhoi, priced on MPWD rates. The final estimate landed within 0.6% of the budget.</p><div class="meter" data-s="5"></div></div>
+    <div class="card hov"><span class="badge s-use" style="align-self:flex-start">In use</span><h3>Document generators</h3><p>Admit cards, question papers and registers, generated from one sheet.</p><div class="meter" data-s="4"></div></div>
+    <div class="card hov"><span class="badge s-spec" style="align-self:flex-start">Designed</span><h3>Housie organizer</h3><p>Runs housie at school fêtes, with draws anyone can verify afterwards. Ships as plain files, no server needed.</p><div class="meter" data-s="2"></div></div>
+    <div class="card hov"><span class="badge s-spec" style="align-self:flex-start">Designed</span><h3>Automatic school bell</h3><p>An ESP32 that rings each period on schedule, so nobody has to watch the clock.</p><div class="meter" data-s="2"></div></div>
+    <div class="card hov"><span class="badge s-idea" style="align-self:flex-start">Idea</span><h3>Exam mock tests</h3><p>Practice tests for job exams, including Meghalaya government posts, across subjects.</p><div class="meter" data-s="1"></div></div>
+  </div>
+</section>
+
+<!-- LAB -->
+<section class="page" id="p-lab" data-page="lab" hidden>
+  <header class="sh"><p class="mono">03 · Live experiments</p><h2 tabindex="-1">Lab</h2></header>
+  <p class="lede" style="margin-bottom:2.2rem">Working demos of ideas from my projects. Nothing here is stored.</p>
+  <div class="lab">
+    <div class="card">
+      <h3>Attendance scanner</h3>
+      <p>Pick a staff member, then press and hold the fingerprint. First scan checks in, second checks out.</p>
+      <label for="who">Who's scanning?</label>
+      <select id="who"></select>
+      <div class="scanner">
+        <button class="fp" id="fp" type="button" aria-label="Hold to scan fingerprint">
+          <svg viewBox="0 0 170 170" aria-hidden="true">
+            <circle class="ring" id="ring" cx="85" cy="85" r="80" stroke-dasharray="503" stroke-dashoffset="503"/>
+            <g id="ridges"></g>
+          </svg>
+        </button>
+        <div class="msg" id="msg" role="status" aria-live="polite">Hold to scan</div>
+      </div>
+      <div class="row">
+        <div class="mono">Day <span id="day">1</span></div>
+        <button class="btn" id="nextDay" type="button">Start next day</button>
+      </div>
+      <table><thead><tr><th>Staff</th><th>Now</th><th>Days present</th></tr></thead><tbody id="log"></tbody></table>
+    </div>
+    <div class="card">
+      <h3>Fair housie draw</h3>
+      <p>The draw order comes from a seed. Announce the seed after the game, and anyone can re-run it to check the numbers weren't changed.</p>
+      <div class="row">
+        <div><label for="seed">Seed</label><input type="text" id="seed" value="fete-2026"></div>
+        <button class="btn solid" id="drawBtn" type="button">Draw</button>
+      </div>
+      <p style="margin:1.2rem 0 0;font:400 .8rem var(--mono);color:var(--muted)" id="drawNote"></p>
+      <div class="balls" id="balls"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section class="page" id="p-teaching" data-page="teaching" hidden>
+  <header class="sh"><p class="mono">04 · Classroom</p><h2 tabindex="-1">Teaching</h2></header>
+  <div class="grid3">
+    <div class="card hov"><span class="tag">Class 8</span><h3>Python</h3><p>First programs, loops and lists, taught by making small things that work.</p></div>
+    <div class="card hov"><span class="tag">Class 10</span><h3>Mathematics</h3><p>Board exam preparation, with worked practice papers.</p></div>
+    <div class="card hov"><span class="tag">ICSE</span><h3>Physics</h3><p>One-to-one tutoring, concept first, numericals after.</p></div>
+  </div>
+  <div class="card">
+    <h3>Predict the output</h3>
+    <p>The kind of question my Class 8 students get. What does this print?</p>
+    <pre id="code"></pre>
+    <div class="choices" id="choices"></div>
+    <p class="msg" id="qmsg" style="text-align:left;margin:1.1rem 0" role="status" aria-live="polite"></p>
+    <button class="btn" id="nextQ" type="button">Next question <span class="arr">→</span></button>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="page" id="p-music" data-page="music" hidden>
+  <header class="sh"><p class="mono">05 · After hours</p><h2 tabindex="-1">Music</h2></header>
+  <p class="lede">I write songs and produce them with Suno AI.</p>
+  <div class="scope" aria-hidden="true"><span class="mono">CH1 · 2 V/div</span><canvas id="scope"></canvas></div>
+  <div class="grid3">
+    <div class="card hov"><span class="tag">Track A</span><h3>Birthday songs</h3><p>Simple, singable lyrics with the right name in the right place.</p></div>
+    <div class="card hov"><span class="tag">Track B</span><h3>For people close to me</h3><p>Songs written for the people who matter.</p></div>
+    <div class="card hov"><span class="tag">Track C</span><h3>Celebrations</h3><p>Songs for the occasions worth marking.</p></div>
+  </div>
+  <p class="lede">The writing is mine; the production is a craft of its own, getting the style prompt and even the pronunciation of names exactly right.</p>
+  <a class="btn solid" href="mailto:apohtamkai@outlook.com?subject=Song%20request">Want a song for someone? <span class="arr">→</span></a>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="p-contact" data-page="contact" hidden>
+  <header class="sh"><p class="mono">06 · Say hello</p><h2 tabindex="-1">Let's build <em>something.</em></h2></header>
+  <p class="lede">Need a tool for your school, or want to talk about one of these projects?</p>
+  <div class="card note">
+    <dl>
+      <dt>Name</dt><dd class="big">Trimdiam</dd>
+      <dt>Based in</dt><dd>Shillong, Meghalaya</dd>
+      <dt>Email</dt><dd><a href="mailto:apohtamkai@outlook.com">apohtamkai@outlook.com</a></dd>
+      <dt>Ask about</dt><dd>Estimates and DPRs · School tools · Tutoring · A song for someone</dd>
+    </dl>
+    <a class="btn solid" href="mailto:apohtamkai@outlook.com">Email me <span class="arr">→</span></a>
+  </div>
+</section>
+</main>
+
+<footer><span class="mono">© 2026 Trimdiam · Shillong, Meghalaya</span><span class="mono">Built from scratch · Visca Barça</span></footer>
+
+<button class="ask-btn" id="askBtn" type="button" aria-expanded="false" aria-controls="ask"><span class="led" aria-hidden="true"></span>Ask the bench</button>
+<section class="ask" id="ask" role="dialog" aria-label="Ask the bench, a small AI assistant" aria-hidden="true" inert>
+  <div class="ask-hd"><span class="led" aria-hidden="true"></span><span class="mono">ask-the-bench</span><button class="ask-x" id="askX" type="button" aria-label="Close">×</button></div>
+  <div class="ask-log" id="askLog">
+    <p class="a">Hello. I'm a small AI that knows about Trimdiam's work: engineering estimates, school tools, teaching and music. What would you like to know?</p>
+    <div class="chips" id="askSug">
+      <button type="button">What engineering work does Trimdiam do?</button>
+      <button type="button">Can I get tutoring?</button>
+      <button type="button">How does the fair housie draw work?</button>
+    </div>
+  </div>
+  <p class="sr" id="askLive" aria-live="polite"></p>
+  <form class="ask-f" id="askF">
+    <label class="sr" for="askIn">Your question</label>
+    <input id="askIn" type="text" maxlength="500" autocomplete="off" placeholder="Ask a question…">
+    <button class="btn solid" id="askGo" type="submit" aria-label="Send">→</button>
+  </form>
+  <p class="ask-note">AI answers can be wrong. For anything important, email Trimdiam.</p>
+</section>
+
+<script>
+const $=s=>document.querySelector(s);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const ri=k=>Math.floor(Math.random()*k);
+
+/* ---------- desk lamp: follows the cursor slowly; switchable ---------- */
+(function lamp(){
+  const L=$('#lamp'),sw=$('#lampSw');let tx=innerWidth*.72,ty=innerHeight*.35,x=tx,y=ty;
+  const place=()=>{L.style.transform=`translate(${x}px,${y}px)`;};place();
+  function set(on){document.body.classList.toggle('lamp-off',!on);sw.setAttribute('aria-checked',String(on));try{localStorage.setItem('lamp',on?'1':'0');}catch(e){}}
+  let saved=null;try{saved=localStorage.getItem('lamp');}catch(e){}
+  if(saved==='0')set(false);
+  sw.addEventListener('click',()=>set(sw.getAttribute('aria-checked')!=='true'));
+  if(reduce||!matchMedia('(pointer:fine)').matches)return;
+  addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;});
+  (function step(){x+=(tx-x)*.06;y+=(ty-y)*.06;place();requestAnimationFrame(step);})();
+})();
+
+/* ---------- Shillong clock ---------- */
+function tick(){
+  const d=new Date(),tz={timeZone:'Asia/Kolkata'};
+  $('#clkHM').textContent=d.toLocaleTimeString('en-GB',{...tz,hour:'2-digit',minute:'2-digit'});
+  $('#clkS').textContent=d.toLocaleTimeString('en-GB',{...tz,second:'2-digit'}).padStart(2,'0');
+  $('#clkDate').textContent=d.toLocaleDateString('en-GB',{...tz,weekday:'long',day:'numeric',month:'long'});
+}
+tick();setInterval(tick,1000);
+
+/* ---------- nav indicator ---------- */
+function moveInd(){
+  const a=document.querySelector('.links a[aria-current="page"]'),ind=$('#ind');
+  if(!a){ind.style.width='0';return;}
+  ind.style.left=(a.offsetLeft+10)+'px';ind.style.width=(a.offsetWidth-20)+'px';
+}
+addEventListener('resize',moveInd);
+
+/* ---------- router with view transitions ---------- */
+const ROUTES=['home','engineering','projects','lab','teaching','music','contact'];
+const NAMES={home:'',engineering:'Engineering',projects:'Projects',lab:'Lab',teaching:'Teaching',music:'Music',contact:'Contact'};
+let current=null;
+function count(el){
+  const to=+el.dataset.to,dec=+(el.dataset.dec||0);
+  if(reduce){el.textContent=to.toFixed(dec);return;}
+  const t0=performance.now();
+  const step=t=>{const f=Math.min(1,(t-t0)/1500),e=1-Math.pow(1-f,4);el.textContent=(to*e).toFixed(dec);if(f<1)requestAnimationFrame(step);};
+  requestAnimationFrame(step);
+}
+function show(r,about){
+  document.querySelectorAll('.page').forEach(p=>{p.hidden=p.dataset.page!==r});
+  document.querySelectorAll('.links a').forEach(a=>{
+    if(a.getAttribute('href')==='#'+r)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+  });
+  document.title=NAMES[r]?`${NAMES[r]} — Trimdiam`:'Trimdiam — civil engineer, teacher and builder, Shillong';
+  moveInd();
+  const page=$('#p-'+r);
+  if(current!==null){
+    window.scrollTo(0,0);page.querySelector('[tabindex="-1"]').focus({preventScroll:true});
+    if(!document.startViewTransition&&!reduce){page.classList.remove('enter');void page.offsetWidth;page.classList.add('enter');}
+  }
+  if(r==='home')document.querySelectorAll('.count').forEach(count);
+  if(about)setTimeout(()=>$('#about').scrollIntoView({behavior:reduce?'auto':'smooth'}),400);
+  current=r;
+}
+function go(){
+  let r=location.hash.slice(1)||'home',about=false;
+  if(r==='about'){r='home';about=true;}
+  if(!ROUTES.includes(r))r='home';
+  if(current!==null&&current!==r&&document.startViewTransition&&!reduce){
+    /* the browser runs the swap once it has a frame; if it never gets one, switch anyway */
+    let done=false;const run=()=>{if(done)return;done=true;show(r,about);};
+    const vt=document.startViewTransition(run);
+    [vt.ready,vt.finished,vt.updateCallbackDone].forEach(p=>p&&p.catch(()=>{}));
+    setTimeout(()=>{if(!done){try{vt.skipTransition();}catch(e){}run();}},350);
+  }else show(r,about);
+}
+addEventListener('hashchange',go);
+
+/* ---------- the circuit board ---------- */
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+const nodes=[];
+(function buildBoard(){
+  [[40,40],[480,40],[40,360],[480,360]].forEach(([x,y])=>{el('circle',{cx:x,cy:y,r:10,fill:'url(#gold)',opacity:.85},$('#holes'));el('circle',{cx:x,cy:y,r:6,class:'hole'},$('#holes'));});
+  for(let k=0;k<8;k++){const y=158+k*12;
+    el('rect',{x:189,y:y-2.5,width:7,height:5,fill:'var(--metal)'},$('#pins'));el('rect',{x:324,y:y-2.5,width:7,height:5,fill:'var(--metal)'},$('#pins'));}
+  const P=$('#parts');
+  [[150,340,'R1'],[200,340,'R2'],[250,340,'C1'],[300,340,'C2'],[350,340,'R3']].forEach(([x,y,t])=>{
+    el('rect',{x:x-14,y:y-5,width:28,height:10,rx:2,fill:'#0a1022',stroke:'#2a3a64'},P);
+    el('rect',{x:x-18,y:y-5,width:5,height:10,fill:'var(--metal)'},P);el('rect',{x:x+13,y:y-5,width:5,height:10,fill:'var(--metal)'},P);
+    const tx=el('text',{class:'silk sm',x:x,y:y-10,'text-anchor':'middle'},P);tx.textContent=t;
+  });
+  el('path',{d:'M150 335V300H200V335M250 335V300H300V335M350 335V300',fill:'none',stroke:'var(--trace)','stroke-width':1.6,opacity:.6},P);
+  el('rect',{x:240,y:70,width:40,height:36,rx:4,fill:'var(--chip)',stroke:'#26345a'},P);
+  el('path',{d:'M260 106V146',fill:'none',stroke:'var(--trace)','stroke-width':1.6,opacity:.6},P);
+  const q=el('text',{class:'silk sm',x:290,y:92},P);q.textContent='U2';
+  el('circle',{cx:110,cy:62,r:14,fill:'#0a1022',stroke:'#2a3a64'},P);el('circle',{cx:110,cy:62,r:5,fill:'var(--metal)'},P);
+  const c3=el('text',{class:'silk sm',x:110,y:90,'text-anchor':'middle'},P);c3.textContent='C3';
+  const N=$('#nodes');
+  const defs=[
+    ['engineering','Engineering','M196 170H150L90 110H76',60,110],
+    ['projects','Projects','M196 200H76',60,200],
+    ['lab','Lab','M196 230H150L90 290H76',60,290],
+    ['teaching','Teaching','M324 170H370L430 110H444',460,110],
+    ['music','Music','M324 200H444',460,200],
+    ['contact','Contact','M324 230H370L430 290H444',460,290]];
+  defs.forEach(([h,name,d,px,py])=>{
+    const a=el('a',{href:'#'+h,class:'node','aria-label':name},N);
+    el('path',{d,class:'hit'},a);
+    el('path',{d,class:'trace'},a);
+    const pulse=el('path',{d,class:'pulse',pathLength:1},a);
+    el('circle',{cx:px,cy:py,r:13,class:'pad'},a);
+    el('circle',{cx:px,cy:py,r:5,class:'hole'},a);
+    const t=el('text',{x:px,y:py+32,'text-anchor':'middle',class:'silk'},a);t.textContent=name;
+    nodes.push({a,pulse});
+    const fire=()=>{pulse.classList.remove('run');void pulse.getBoundingClientRect();pulse.classList.add('run');};
+    a.addEventListener('pointerenter',fire);a.addEventListener('focus',fire);
+    a.addEventListener('click',e=>{if(reduce)return;e.preventDefault();a.classList.add('on');fire();setTimeout(()=>{a.classList.remove('on');location.hash='#'+h;},420);});
+  });
+})();
+if(!reduce)setInterval(()=>{
+  if(current!=='home'||document.hidden)return;
+  const p=nodes[ri(nodes.length)].pulse;p.classList.remove('run');void p.getBoundingClientRect();p.classList.add('run');
+},3200);
+
+/* ---------- progress meters ---------- */
+document.querySelectorAll('.meter').forEach(m=>{
+  const n=+m.dataset.s,names=['Idea','Designed','Building','In use','Done'];
+  m.setAttribute('role','img');m.setAttribute('aria-label',`Stage ${n} of 5: ${names[n-1]}`);
+  if(n===5)m.classList.add('done');
+  m.innerHTML=Array.from({length:5},(_,i)=>`<i class="${i<n-1?'on':i===n-1&&n<5?'now':i<n?'on':''}"></i>`).join('');
+});
+
+/* ---------- home panels: mini music bars + puzzle ---------- */
+$('#miniBars').innerHTML=Array.from({length:28},(_,i)=>{
+  const h=(.25+.75*Math.abs(Math.sin(i*.41)*Math.cos(i*.13))).toFixed(2);
+  return `<i style="--h:${h};animation-delay:${-((i*97)%1200)}ms;animation-duration:${900+(i*53)%700}ms"></i>`;
+}).join('');
+$('#pzBtn').addEventListener('click',function(){
+  const a=$('#pzA'),open=a.hidden;a.hidden=!open;this.setAttribute('aria-expanded',String(open));this.textContent=open?'Hide answer':'Reveal answer';
+});
+
+/* ---------- oscilloscope (music page) ---------- */
+(function scope(){
+  const cv=$('#scope'),ctx=cv.getContext('2d');
+  function frame(t){
+    requestAnimationFrame(frame);
+    if(current!=='music')return;
+    const r=cv.getBoundingClientRect();if(!r.width)return;
+    const dpr=Math.min(2,devicePixelRatio||1),w=r.width,h=r.height;
+    if(cv.width!==Math.round(w*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);}
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+    ctx.strokeStyle='rgba(200,215,255,.07)';ctx.lineWidth=1;
+    for(let x=0;x<=w;x+=w/10){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+    for(let y=0;y<=h;y+=h/6){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+    const s=reduce?0:t*.001;
+    const wave=(ph,amp,col,blur,lw)=>{
+      ctx.beginPath();
+      for(let x=0;x<=w;x+=2){
+        const u=x/w,env=Math.sin(u*Math.PI);
+        const y=h/2+env*amp*(Math.sin(u*14+s*1.6+ph)*.55+Math.sin(u*31-s*2.3+ph)*.25+Math.sin(u*5+s*.7)*.2);
+        x?ctx.lineTo(x,y):ctx.moveTo(x,y);
+      }
+      ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.shadowColor=col;ctx.shadowBlur=blur;ctx.stroke();ctx.shadowBlur=0;
+    };
+    wave(1.4,h*.22,'rgba(90,142,240,.6)',0,1.2);
+    wave(0,h*.34,'#f2c14e',14,2);
+  }
+  requestAnimationFrame(frame);
+})();
+
+/* ---------- fingerprint attendance (+ the art on the home panel) ---------- */
+const staff=['Staff 01, Mathematics','Staff 02, English','Staff 03, Science','Staff 04, Office'];
+const state={day:1,rec:staff.map(()=>({in:false,days:new Set()}))};
+$('#who').innerHTML=staff.map((s,i)=>`<option value="${i}">${s}</option>`).join('');
+(function ridges(){
+  let h='';for(let i=0;i<7;i++){const rx=14+i*8.5,ry=18+i*9.5;h+=`<path class="ridge" d="M ${85-rx} ${92} A ${rx} ${ry} 0 1 1 ${85+rx} ${92} ${i%2?'':`L ${85+rx} ${100+i*3}`}"/>`;}
+  $('#ridges').innerHTML=h;$('#fpArt').innerHTML=h;
+})();
+function renderLog(){
+  $('#day').textContent=state.day;
+  $('#log').innerHTML=staff.map((s,i)=>{const r=state.rec[i];return`<tr><td>${s.split(',')[0]}</td><td>${r.in?'<span class="in">In</span>':'Out'}</td><td>${r.days.size}</td></tr>`}).join('');
+}
+renderLog();
+const fp=$('#fp'),ring=$('#ring'),msg=$('#msg');let hold=null,start=0;
+function setRing(f){ring.style.strokeDashoffset=503*(1-f);}
+function begin(e){if(e)e.preventDefault();if(hold)return;fp.classList.remove('ok');fp.classList.add('active');msg.textContent='Scanning…';start=performance.now();
+  const step=t=>{const f=Math.min(1,(t-start)/1100);setRing(f);if(f>=1){finish();}else hold=requestAnimationFrame(step);};hold=requestAnimationFrame(step);}
+function cancel(){if(!hold)return;cancelAnimationFrame(hold);hold=null;fp.classList.remove('active');setRing(0);msg.textContent='Too quick. Hold until the ring closes.';}
+function finish(){
+  cancelAnimationFrame(hold);hold=null;fp.classList.remove('active');fp.classList.add('ok');
+  const i=+$('#who').value,r=state.rec[i],name=staff[i].split(',')[0],time=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  if(!r.in){r.in=true;r.days.add(state.day);msg.textContent=`${name} checked in at ${time}`;}
+  else{r.in=false;msg.textContent=`${name} checked out at ${time}`;}
+  renderLog();setTimeout(()=>setRing(0),700);
+}
+fp.addEventListener('pointerdown',begin);
+['pointerup','pointerleave','pointercancel'].forEach(ev=>fp.addEventListener(ev,()=>{if(hold)cancel();}));
+fp.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&!e.repeat)begin(e);});
+fp.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter'){if(hold)cancel();}});
+fp.addEventListener('click',e=>e.preventDefault());
+$('#nextDay').addEventListener('click',()=>{state.day++;state.rec.forEach(r=>r.in=false);msg.textContent=`Day ${state.day} started. Everyone is out.`;renderLog();});
+
+/* ---------- seeded housie draw ---------- */
+function hash(str){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<str.length;i++){const c=str.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677);}
+  h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);return h1>>>0;}
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function draw(){
+  const seed=$('#seed').value.trim()||'fete-2026',r=rng(hash(seed)),n=Array.from({length:90},(_,i)=>i+1);
+  for(let i=n.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[n[i],n[j]]=[n[j],n[i]];}
+  $('#balls').innerHTML=n.slice(0,20).map((v,i)=>`<div class="ball${i===0?' first':''}" style="--i:${i}">${v}</div>`).join('');
+  $('#drawNote').textContent=`First 20 of 90 numbers for seed "${seed}". Same seed, same order, every time.`;
+}
+$('#drawBtn').addEventListener('click',draw);
+$('#seed').addEventListener('keydown',e=>{if(e.key==='Enter')draw();});
+draw();
+
+/* ---------- predict the output ---------- */
+const qs=[
+  {code:'nums = [3, 1, 4, 1, 5]\nprint(sorted(set(nums))[-2])',opts:['5','4','1','Error'],a:'4',why:'set() removes the duplicate 1, sorted gives [1, 3, 4, 5], and [-2] is the second from the end.'},
+  {code:'print("Shillong"[::-2])',opts:['golh','gnollihS','Slon','Error'],a:'golh',why:'A step of -2 starts at the last letter and takes every second one going backwards: g, o, l, h.'},
+  {code:'x = 7\nx //= 2\nprint(x ** 2)',opts:['12.25','9','6','49'],a:'9',why:'// is floor division, so x becomes 3, and 3 ** 2 is 9.'}
+];
+let qi=0;
+function showQ(){
+  const q=qs[qi];$('#code').textContent=q.code;$('#qmsg').textContent='';
+  $('#choices').innerHTML=q.opts.map(o=>`<button type="button">${o}</button>`).join('');
+  $('#choices').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    if(b.textContent===q.a){b.classList.add('right');$('#qmsg').textContent='Correct. '+q.why;}
+    else{b.classList.add('wrong');$('#qmsg').textContent='Not that one. Try again.';}
+  }));
+}
+$('#nextQ').addEventListener('click',()=>{qi=(qi+1)%qs.length;showQ();});
+showQ();
+
+/* ---------- ask the bench (AI assistant) ----------
+   After deploying ask-worker/worker.js, paste its address here, e.g.
+   url:'https://trimdiam-ask.yourname.workers.dev'                     */
+const ASK={url:''};
+(function askBench(){
+  const btn=$('#askBtn'),box=$('#ask'),log=$('#askLog'),form=$('#askF'),input=$('#askIn'),go_=$('#askGo'),sug=$('#askSug'),live=$('#askLive');
+  const history=[];let busy=false;
+  const EMAIL='apohtamkai@outlook.com';
+  function open(o){
+    box.classList.toggle('open',o);box.setAttribute('aria-hidden',String(!o));box.inert=!o;btn.setAttribute('aria-expanded',String(o));
+    if(o)setTimeout(()=>input.focus(),250);else btn.focus();
+  }
+  btn.addEventListener('click',()=>open(true));
+  $('#askX').addEventListener('click',()=>open(false));
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&box.classList.contains('open'))open(false);});
+  function add(cls,text){const p=document.createElement('p');p.className=cls;p.textContent=text;log.appendChild(p);log.scrollTop=log.scrollHeight;return p;}
+  function typeOut(p,text){
+    if(reduce){p.textContent=text;return Promise.resolve();}
+    return new Promise(res=>{let i=0;const step=()=>{i=Math.min(text.length,i+3);p.textContent=text.slice(0,i);log.scrollTop=log.scrollHeight;i<text.length?setTimeout(step,14):res();};step();});
+  }
+  async function ask(q){
+    q=q.trim().slice(0,500);if(!q||busy)return;
+    busy=true;go_.disabled=true;sug.hidden=true;
+    add('q',q);history.push({role:'user',content:q});
+    const p=add('a typing','');
+    let answer,failed=false;
+    if(!ASK.url){answer=`The assistant isn't connected yet. Until it is, you can email Trimdiam at ${EMAIL}.`;failed=true;}
+    else{
+      try{
+        const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),20000);
+        const r=await fetch(ASK.url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history.slice(-6)}),signal:ctrl.signal});
+        clearTimeout(timer);
+        const d=await r.json().catch(()=>({}));
+        if(r.ok&&d.answer)answer=d.answer;
+        else{answer=`${d.error||'Something went wrong.'} You can always email ${EMAIL}.`;failed=true;}
+      }catch(e){answer=`The bench is offline right now. You can email Trimdiam at ${EMAIL}.`;failed=true;}
+    }
+    if(failed){history.pop();p.classList.add('err');}else history.push({role:'assistant',content:answer});
+    p.classList.remove('typing');live.textContent=answer;
+    await typeOut(p,answer);
+    busy=false;go_.disabled=false;input.focus();
+  }
+  form.addEventListener('submit',e=>{e.preventDefault();const q=input.value;input.value='';ask(q);});
+  sug.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>ask(b.textContent)));
+  /* the "Ask the bench" panel on the home page hands its question to this chat */
+  const tf=$('#tAskF'),ti=$('#tAskIn');
+  const handoff=q=>{q=q.trim();open(true);if(q)ask(q);};
+  tf.addEventListener('submit',e=>{e.preventDefault();const q=ti.value;ti.value='';handoff(q);});
+  $('#tAskChips').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>handoff(b.textContent)));
+  /* while that panel is on screen, the floating button steps aside */
+  if('IntersectionObserver' in window)new IntersectionObserver(es=>{
+    document.body.classList.toggle('ask-inline',es[0].isIntersecting);
+  }).observe($('.t-ask'));
+})();
+
+go();
+</script>
+</body>
+</html>

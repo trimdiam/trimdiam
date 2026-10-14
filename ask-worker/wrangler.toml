@@ -1,0 +1,11 @@
+# Only needed if you deploy with the Wrangler command-line tool.
+# The dashboard route in README.md does not use this file.
+name = "trimdiam-ask"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+
+[ai]
+binding = "AI"
+
+# [vars]
+# ALLOWED_ORIGINS = "https://trimdiam.pages.dev"
