@@ -22,7 +22,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- fonts load without blocking the first paint; system fonts show until they arrive -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <style>
 :root{
   --bg:#081022; --card:#0e1934; --card2:#13213f; --ink:#edf1f9; --muted:#9fb1d2; --faint:#6c80a8;
@@ -44,7 +47,7 @@ body{margin:0;min-height:100vh;color:var(--ink);font:400 1.02rem/1.7 var(--body)
     radial-gradient(rgba(200,215,255,.05) 1.2px,transparent 1.3px) 0 0/28px 28px,
     var(--bg);
   padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.06;will-change:transform;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 h1,h2,h3{font-family:var(--serif);margin:0;font-weight:400;line-height:1.05;letter-spacing:-.01em;font-optical-sizing:auto}
 h3{font-size:1.3rem;font-weight:500}
@@ -57,7 +60,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .led{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:breathe 3.2s ease-in-out infinite;flex:none}
-@keyframes breathe{50%{opacity:.35;box-shadow:0 0 3px var(--amber)}}
+@keyframes breathe{50%{opacity:.35}}
 
 /* desk lamp */
 .lamp{position:fixed;left:0;top:0;width:1100px;height:1100px;margin:-550px 0 0 -550px;z-index:0;pointer-events:none;transition:opacity .8s;
@@ -120,7 +123,9 @@ h1.name{font-size:clamp(3.4rem,13vw,7.6rem);font-weight:300;letter-spacing:-.03e
 .motto{font:italic 300 clamp(1.4rem,3vw,2.1rem)/1.2 var(--serif);color:var(--amber);margin:0 0 1.3rem}
 .hero .lede{max-width:46ch}
 .board{margin:0;width:100%;max-width:700px;justify-self:center}
-.board svg{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
+.board{position:relative}
+.board::before{content:"";position:absolute;left:6%;right:6%;top:10%;height:72%;border-radius:40px;background:rgba(0,0,0,.6);filter:blur(34px);transform:translateY(26px);z-index:-1;pointer-events:none}
+.board svg{position:relative;width:100%;height:auto;display:block;will-change:transform}
 .board figcaption{margin-top:.5rem;text-align:center;font-size:.62rem}
 @media(min-width:1000px){.board{justify-self:end;animation:float 9s ease-in-out infinite}}
 @keyframes float{50%{transform:translateY(-8px) rotate(-.4deg)}}
@@ -139,7 +144,7 @@ h1.name{font-size:clamp(3.4rem,13vw,7.6rem);font-weight:300;letter-spacing:-.03e
 #pcb .node:hover .pad,#pcb .node:focus-visible .pad,#pcb .node.on .pad{filter:url(#glow)}
 #pcb .node:hover .silk,#pcb .node:focus-visible .silk,#pcb .node.on .silk{fill:var(--amber);opacity:1}
 #pcb .node .hit{fill:none;stroke:transparent;stroke-width:26;pointer-events:stroke}
-#pcb .pwr{fill:var(--amber);animation:breathe 3.2s ease-in-out infinite}
+#pcb .pwr{fill:var(--amber)}
 
 /* ---------- home: bento panels ---------- */
 .bento{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:clamp(2rem,4vw,3rem)}
@@ -161,8 +166,8 @@ h1.name{font-size:clamp(3.4rem,13vw,7.6rem);font-weight:300;letter-spacing:-.03e
 .fp-art{width:110px;height:110px;position:relative;border-radius:50%;border:1px solid var(--line2);background:radial-gradient(circle,#13254a,#0a1430);overflow:hidden}
 .fp-art svg{width:100%;height:100%;display:block}
 .fp-art .ridge{fill:none;stroke:var(--amber);stroke-width:2.6;stroke-linecap:round;opacity:.75}
-.fp-art::after{content:"";position:absolute;left:12%;right:12%;height:2px;top:10%;background:linear-gradient(90deg,transparent,#fff3c9,transparent);box-shadow:0 0 10px var(--amber);animation:scan 2.8s ease-in-out infinite}
-@keyframes scan{50%{top:86%}}
+.fp-art::after{content:"";position:absolute;left:12%;right:12%;height:2px;top:10%;will-change:transform;background:linear-gradient(90deg,transparent,#fff3c9,transparent);box-shadow:0 0 10px var(--amber);animation:scan 2.8s ease-in-out infinite}
+@keyframes scan{50%{transform:translateY(84px)}}
 @media(max-width:460px){.build-body{grid-template-columns:1fr}.fp-art{display:none}}
 
 /* ask tile */
@@ -281,9 +286,9 @@ h3.sub{font-size:1.7rem;font-weight:300;margin:3.2rem 0 1.2rem}
 .fp.active .ridge{stroke:var(--amber)}
 .fp.ok{border-color:var(--ok);box-shadow:0 0 40px -6px rgba(111,211,165,.5)}
 .fp.ok .ridge{stroke:var(--ok)}
-.fp::after{content:"";position:absolute;left:10%;right:10%;top:0;height:2px;z-index:2;background:linear-gradient(90deg,transparent,#fff3c9,transparent);opacity:0}
+.fp::after{content:"";position:absolute;left:10%;right:10%;top:0;height:2px;will-change:transform;z-index:2;background:linear-gradient(90deg,transparent,#fff3c9,transparent);opacity:0}
 .fp.active::after{opacity:1;animation:laser 1.1s linear forwards}
-@keyframes laser{to{top:100%}}
+@keyframes laser{to{transform:translateY(174px)}}
 .ring{fill:none;stroke:var(--amber);stroke-width:4;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
 .msg{min-height:1.7em;font:500 .85rem var(--mono);text-align:center}
 label{display:block;font:500 .68rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
@@ -326,7 +331,7 @@ footer{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:2rem c
 
 /* ---------- ask the bench (AI assistant panel) ---------- */
 .ask-btn{position:fixed;right:clamp(1rem,3vw,1.8rem);bottom:calc(clamp(1rem,3vw,1.8rem) + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:.6rem;
-  padding:.75rem 1.15rem;border-radius:999px;border:1px solid var(--line2);background:rgba(14,25,52,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  padding:.75rem 1.15rem;border-radius:999px;border:1px solid var(--line2);background:rgba(14,25,52,.97);
   color:var(--ink);font:500 .88rem var(--body);box-shadow:0 14px 40px -14px rgba(0,0,0,.9);transition:border-color .35s,transform .45s var(--ease),opacity .35s}
 .ask-btn:hover{border-color:var(--amber);transform:translateY(-2px)}
 .ask-btn[aria-expanded="true"],body.ask-inline .ask-btn{opacity:0;pointer-events:none;transform:translateY(8px)}
@@ -417,6 +422,7 @@ footer{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:2rem c
   </div>
 
   <div class="bento">
+    <h2 class="sr">At a glance</h2>
     <!-- now building -->
     <article class="tile span2">
       <div class="t-top"><span class="badge s-build">Now building</span><span class="mono">Projects</span></div>
@@ -749,9 +755,12 @@ tick();setInterval(tick,1000);
 
 /* ---------- nav indicator ---------- */
 function moveInd(){
-  const a=document.querySelector('.links a[aria-current="page"]'),ind=$('#ind');
-  if(!a){ind.style.width='0';return;}
-  ind.style.left=(a.offsetLeft+10)+'px';ind.style.width=(a.offsetWidth-20)+'px';
+  /* measured on the next frame so it doesn't force an extra layout mid-update */
+  requestAnimationFrame(()=>{
+    const a=document.querySelector('.links a[aria-current="page"]'),ind=$('#ind');
+    if(!a){ind.style.width='0';return;}
+    ind.style.left=(a.offsetLeft+10)+'px';ind.style.width=(a.offsetWidth-20)+'px';
+  });
 }
 addEventListener('resize',moveInd);
 
@@ -766,6 +775,9 @@ function count(el){
   const step=t=>{const f=Math.min(1,(t-t0)/1500),e=1-Math.pow(1-f,4);el.textContent=(to*e).toFixed(dec);if(f<1)requestAnimationFrame(step);};
   requestAnimationFrame(step);
 }
+const statsIO=('IntersectionObserver' in window&&!reduce)?new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){statsIO.unobserve(e.target);document.querySelectorAll('.count').forEach(count);}});
+},{threshold:.4}):null;
 function show(r,about){
   document.querySelectorAll('.page').forEach(p=>{p.hidden=p.dataset.page!==r});
   document.querySelectorAll('.links a').forEach(a=>{
@@ -778,7 +790,12 @@ function show(r,about){
     window.scrollTo(0,0);page.querySelector('[tabindex="-1"]').focus({preventScroll:true});
     if(!document.startViewTransition&&!reduce){page.classList.remove('enter');void page.offsetWidth;page.classList.add('enter');}
   }
-  if(r==='home')document.querySelectorAll('.count').forEach(count);
+  if(r==='home'){
+    /* the numbers count up when they scroll into view, not during page load */
+    const st=$('.stats');
+    if(statsIO){statsIO.unobserve(st);statsIO.observe(st);}else document.querySelectorAll('.count').forEach(count);
+  }
+  if(r==='music')startScope();
   if(about)setTimeout(()=>$('#about').scrollIntoView({behavior:reduce?'auto':'smooth'}),400);
   current=r;
 }
@@ -861,11 +878,14 @@ $('#pzBtn').addEventListener('click',function(){
 });
 
 /* ---------- oscilloscope (music page) ---------- */
-(function scope(){
+/* runs only while the Music page is open, so other pages stay idle */
+let scopeRunning=false;
+function startScope(){if(!scopeRunning){scopeRunning=true;requestAnimationFrame(scopeFrame);}}
+const scopeFrame=(function scope(){
   const cv=$('#scope'),ctx=cv.getContext('2d');
-  function frame(t){
+  return function frame(t){
+    if(current!=='music'){scopeRunning=false;return;}
     requestAnimationFrame(frame);
-    if(current!=='music')return;
     const r=cv.getBoundingClientRect();if(!r.width)return;
     const dpr=Math.min(2,devicePixelRatio||1),w=r.width,h=r.height;
     if(cv.width!==Math.round(w*dpr)){cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);}
@@ -885,8 +905,7 @@ $('#pzBtn').addEventListener('click',function(){
     };
     wave(1.4,h*.22,'rgba(90,142,240,.6)',0,1.2);
     wave(0,h*.34,'#f2c14e',14,2);
-  }
-  requestAnimationFrame(frame);
+  };
 })();
 
 /* ---------- fingerprint attendance (+ the art on the home panel) ---------- */
